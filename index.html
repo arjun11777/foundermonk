@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Foundermonk – Clarity in a Noisy World</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Calendly CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
     :root {
       --bg-primary: #faf7f5;
@@ -435,7 +437,7 @@
   <header>
     <h1 class="logo">foundermonk</h1>
     <p class="tagline">Clarity. Stillness. Strategic Precision.</p>
-    <a href="mailto:arjun@foundermonk.com" class="cta-button">Book a 1:1 Session</a>
+    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/arjun-foundermonk'});return false;" class="cta-button">Book a 1:1 Session</a>
   </header>
 
   <!-- Main Content -->
@@ -504,5 +506,8 @@
       &copy; 2025 Foundermonk. Designed with stillness. Built with vision.
     </div>
   </footer>
+
+  <!-- Calendly JavaScript -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>
