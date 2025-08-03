@@ -1,5 +1,3 @@
-<script data-goatcounter="https://foundermonk.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,11 +143,22 @@
     }
 
     .tagline {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
       color: var(--text-secondary);
       font-weight: 300;
       margin-bottom: 2rem;
-      letter-spacing: 0.5px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
 
     .cta-button {
@@ -573,6 +582,22 @@
       margin-bottom: 1rem;
       color: var(--text-primary);
     }
+
+    .credentials {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .credentials p {
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .credentials p:last-child {
+      margin-bottom: 0;
+    }
     @media (max-width: 768px) {
       header {
         padding: 4rem 1rem 3rem;
@@ -634,8 +659,11 @@
     <!-- Header -->
     <header>
       <h1 class="logo">foundermonk</h1>
-      <p class="tagline">Clarity. Stillness. Strategic Precision.</p>
-      <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/arjun-foundermonk'});return false;" class="cta-button">Book a 1:1 Session</a>
+      <p class="tagline">Build boldly. Execute clearly. Grow without the guesswork.</p>
+      <div class="hero-description">
+        I'm Arjun — strategist and founder partner for solo builders and early-stage creators. I help you turn raw ideas into real progress — no fluff, no noise, just clarity and execution.
+      </div>
+      <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/arjun-foundermonk'});return false;" class="cta-button">Ready to stop circling your idea and start building? Let's talk</a>
     </header>
 
     <!-- Main Content -->
@@ -646,6 +674,11 @@
           <h2 class="section-title">Who I Am</h2>
           <div class="section-content">
             <p>I'm Arjun — I help founders cut through noise and rediscover clarity. I think like a founder, move like a monk. My work blends timeless vision with focused action, rooted in calm strength.</p>
+            <div class="credentials">
+              <p><strong>• Co-created multiple projects from zero</strong></p>
+              <p><strong>• Known for deep thinking and no-bullshit clarity</strong></p>
+              <p><strong>• I don't do hype. I build what works.</strong></p>
+            </div>
           </div>
         </div>
       </section>
@@ -694,16 +727,17 @@
       <section class="section">
         <div class="book-preview">
           <h2 class="book-title">The Monkbook</h2>
-          <p class="book-desc">A short, clear, powerful guide on how modern founders should think. Coming soon.</p>
+          <p class="book-desc">A short, clear, powerful guide on how modern founders should think. Coming soon for $5–$10.</p>
         </div>
       </section>
 
       <!-- Contact Section -->
       <section class="section">
         <div class="section-card">
-          <h2 class="section-title">Contact Me</h2>
+          <h2 class="section-title">Who I work with — and what to expect</h2>
           <div class="section-content">
-            <p>Want clarity in your startup, or your mind? Reach out directly at <a href="mailto:arjun@foundermonk.com">arjun@foundermonk.com</a>.</p>
+            <p>I work with serious builders — solo founders, creators, or teams at Day 0. If you've got an idea and want clarity, structure, or strategy… I'll help you move. I read every message and reply to those that align. Let's make something real.</p>
+            <p style="margin-top: 2rem;">Ready to turn your idea into progress? Reach out directly at <a href="mailto:arjun@foundermonk.com">arjun@foundermonk.com</a>.</p>
           </div>
         </div>
       </section>
