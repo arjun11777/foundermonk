@@ -1,5 +1,5 @@
 <script data-goatcounter="https://foundermonk.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
+        async src="//gc.zgo.at/count.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,44 +7,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Foundermonk – Clarity in a Noisy World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Calendly CSS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #faf7f5;
-      --bg-secondary: #f5f1ef;
-      --text-primary: #2c2420;
-      --text-secondary: #6b5b52;
-      --accent-rose: #d4a5a5;
-      --accent-copper: #b8956a;
-      --accent-mocha: #8b7355;
-      --card-bg: rgba(255, 252, 250, 0.85);
-      --border-subtle: rgba(180, 149, 106, 0.2);
-      --gradient-primary: linear-gradient(135deg, #d4a5a5 0%, #b8956a 50%, #8b7355 100%);
-      --gradient-secondary: linear-gradient(135deg, #b8956a 0%, #d4a5a5 100%);
-      --gradient-bg: linear-gradient(135deg, #faf7f5 0%, #f5f1ef 100%);
-      --shadow-soft: 0 8px 32px rgba(139, 115, 85, 0.12);
-      --shadow-hover: 0 12px 48px rgba(139, 115, 85, 0.18);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-primary: #1a1612;
-        --bg-secondary: #211d18;
-        --text-primary: #f0ebe6;
-        --text-secondary: #c5b8ad;
-        --accent-rose: #e8b5b5;
-        --accent-copper: #d4a574;
-        --accent-mocha: #a68660;
-        --card-bg: rgba(33, 29, 24, 0.9);
-        --border-subtle: rgba(212, 165, 116, 0.25);
-        --gradient-primary: linear-gradient(135deg, #e8b5b5 0%, #d4a574 50%, #a68660 100%);
-        --gradient-secondary: linear-gradient(135deg, #d4a574 0%, #e8b5b5 100%);
-        --gradient-bg: linear-gradient(135deg, #1a1612 0%, #211d18 100%);
-        --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.4);
-        --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.6);
-      }
+      --bg-primary: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #333333;
+      --border-subtle: rgba(0, 0, 0, 0.1);
+      --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 4px 30px rgba(0, 0, 0, 0.08);
+      
+      /* Chakra Colors */
+      --muladhara: #c41e3a;    /* Root - Red */
+      --svadhisthana: #ff6600;  /* Sacral - Orange */
+      --manipura: #ffff00;      /* Solar Plexus - Yellow */
+      --anahata: #00ff00;       /* Heart - Green */
+      --vishuddha: #0066ff;     /* Throat - Blue */
+      --ajna: #4b0082;          /* Third Eye - Indigo */
+      --sahasrara: #9400d3;     /* Crown - Violet */
     }
 
     * {
@@ -55,342 +37,287 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--gradient-bg);
+      background: var(--bg-primary);
       color: var(--text-primary);
-      line-height: 1.8;
+      line-height: 1.6;
       overflow-x: hidden;
       position: relative;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Animated Background Elements */
-    .bg-animation {
+    /* Lotus Bloom Animations */
+    .lotus-container {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       pointer-events: none;
       z-index: -1;
+      opacity: 0;
+      transition: opacity 0.8s ease;
     }
 
-    .floating-element {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--gradient-primary);
+    .lotus-container.bloom {
       opacity: 0.1;
-      animation: float 20s infinite ease-in-out;
     }
 
-    .floating-element:nth-child(1) {
+    /* Sahasrara - 1000 petal lotus for header */
+    .sahasrara-lotus {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Footer lotus - 4 petal */
+    .muladhara-lotus {
       width: 300px;
       height: 300px;
-      top: 10%;
-      left: 10%;
-      animation-delay: 0s;
+      bottom: -100px;
+      right: -100px;
     }
 
-    .floating-element:nth-child(2) {
-      width: 200px;
-      height: 200px;
-      top: 60%;
-      right: 15%;
-      animation-delay: 7s;
+    /* Section lotus variations */
+    .section-lotus {
+      width: 400px;
+      height: 400px;
     }
 
-    .floating-element:nth-child(3) {
-      width: 150px;
-      height: 150px;
-      bottom: 20%;
-      left: 5%;
-      animation-delay: 14s;
+    .lotus-petal {
+      position: absolute;
+      background: radial-gradient(ellipse at center, currentColor 30%, transparent 70%);
+      border-radius: 50% 10% 50% 10%;
+      opacity: 0;
+      animation: petalBloom 2s ease-out forwards;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-30px) rotate(120deg); }
-      66% { transform: translateY(20px) rotate(240deg); }
+    /* Sahasrara petals */
+    .sahasrara-petal {
+      width: 60px;
+      height: 20px;
+      color: var(--sahasrara);
+    }
+
+    /* Generate 16 petals for visual representation */
+    .sahasrara-petal:nth-child(1) { transform: rotate(0deg) translateY(-250px); animation-delay: 0s; }
+    .sahasrara-petal:nth-child(2) { transform: rotate(22.5deg) translateY(-250px); animation-delay: 0.1s; }
+    .sahasrara-petal:nth-child(3) { transform: rotate(45deg) translateY(-250px); animation-delay: 0.2s; }
+    .sahasrara-petal:nth-child(4) { transform: rotate(67.5deg) translateY(-250px); animation-delay: 0.3s; }
+    .sahasrara-petal:nth-child(5) { transform: rotate(90deg) translateY(-250px); animation-delay: 0.4s; }
+    .sahasrara-petal:nth-child(6) { transform: rotate(112.5deg) translateY(-250px); animation-delay: 0.5s; }
+    .sahasrara-petal:nth-child(7) { transform: rotate(135deg) translateY(-250px); animation-delay: 0.6s; }
+    .sahasrara-petal:nth-child(8) { transform: rotate(157.5deg) translateY(-250px); animation-delay: 0.7s; }
+    .sahasrara-petal:nth-child(9) { transform: rotate(180deg) translateY(-250px); animation-delay: 0.8s; }
+    .sahasrara-petal:nth-child(10) { transform: rotate(202.5deg) translateY(-250px); animation-delay: 0.9s; }
+    .sahasrara-petal:nth-child(11) { transform: rotate(225deg) translateY(-250px); animation-delay: 1s; }
+    .sahasrara-petal:nth-child(12) { transform: rotate(247.5deg) translateY(-250px); animation-delay: 1.1s; }
+    .sahasrara-petal:nth-child(13) { transform: rotate(270deg) translateY(-250px); animation-delay: 1.2s; }
+    .sahasrara-petal:nth-child(14) { transform: rotate(292.5deg) translateY(-250px); animation-delay: 1.3s; }
+    .sahasrara-petal:nth-child(15) { transform: rotate(315deg) translateY(-250px); animation-delay: 1.4s; }
+    .sahasrara-petal:nth-child(16) { transform: rotate(337.5deg) translateY(-250px); animation-delay: 1.5s; }
+
+    /* Muladhara petals - 4 petals */
+    .muladhara-petal {
+      width: 80px;
+      height: 40px;
+      color: var(--muladhara);
+    }
+
+    .muladhara-petal:nth-child(1) { transform: rotate(0deg) translateY(-100px); }
+    .muladhara-petal:nth-child(2) { transform: rotate(90deg) translateY(-100px); animation-delay: 0.2s; }
+    .muladhara-petal:nth-child(3) { transform: rotate(180deg) translateY(-100px); animation-delay: 0.4s; }
+    .muladhara-petal:nth-child(4) { transform: rotate(270deg) translateY(-100px); animation-delay: 0.6s; }
+
+    @keyframes petalBloom {
+      0% {
+        opacity: 0;
+        transform: rotate(var(--rotation, 0deg)) translateY(0) scale(0);
+      }
+      50% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0.15;
+        transform: rotate(var(--rotation, 0deg)) translateY(var(--distance, -100px)) scale(1);
+      }
     }
 
     /* Header */
     header {
-      padding: 6rem 2rem 4rem;
+      padding: 8rem 2rem 6rem;
       text-align: center;
       position: relative;
       z-index: 1;
     }
 
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.5rem, 8vw, 6rem);
-      font-weight: 600;
-      background: var(--gradient-primary);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
       letter-spacing: -2px;
-      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       position: relative;
     }
 
-    .logo::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 2px;
-      background: var(--gradient-primary);
-      border-radius: 2px;
-    }
-
     .tagline {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--text-primary);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 1.5rem;
       letter-spacing: 0.5px;
     }
 
     .hero-description {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
-      font-weight: 300;
-      margin-bottom: 2rem;
-      max-width: 700px;
+      font-weight: 400;
+      margin-bottom: 3rem;
+      max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .cta-button {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background: var(--gradient-primary);
+      background: var(--text-primary);
       color: var(--bg-primary);
       text-decoration: none;
-      border-radius: 50px;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .cta-button:hover::before {
-      left: 100%;
+      border-radius: 0;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--text-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
+      background: transparent;
+      color: var(--text-primary);
     }
 
     /* Container */
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
     /* Sections */
     .section {
-      margin-bottom: 5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .section:nth-child(1) { animation-delay: 0.2s; }
-    .section:nth-child(2) { animation-delay: 0.4s; }
-    .section:nth-child(3) { animation-delay: 0.6s; }
-    .section:nth-child(4) { animation-delay: 0.8s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section-card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      margin-bottom: 6rem;
       position: relative;
     }
 
-    .section-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-primary);
-      border-radius: 20px 20px 0 0;
+    .section-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      padding: 4rem 3rem;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     .section-card:hover {
-      transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      position: relative;
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
     }
 
     .section-content {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.8;
       color: var(--text-secondary);
+      font-weight: 400;
     }
 
     /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     .service-item {
-      background: var(--card-bg);
+      background: var(--bg-primary);
       padding: 2rem;
-      border-radius: 15px;
+      border: 1px solid var(--border-subtle);
       text-align: center;
       transition: all 0.3s ease;
-      border: 1px solid var(--border-subtle);
       position: relative;
-      overflow: hidden;
-    }
-
-    .service-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-primary);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    .service-item:hover::before {
-      opacity: 0.05;
     }
 
     .service-item:hover {
-      transform: translateY(-5px);
       box-shadow: var(--shadow-soft);
     }
 
     .service-icon {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
-
-    .service-item:hover .service-icon {
-      filter: grayscale(0%);
     }
 
     .service-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 0.5rem;
     }
 
     .service-desc {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
-      font-weight: 300;
+      font-weight: 400;
     }
 
     /* Book Preview */
     .book-preview {
-      background: var(--gradient-secondary);
-      color: var(--bg-primary);
-      border-radius: 20px;
-      padding: 3rem;
+      background: var(--bg-primary);
+      border: 2px solid var(--text-primary);
+      padding: 4rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
-    }
-
-    .book-preview::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .book-preview > * {
-      position: relative;
-      z-index: 1;
     }
 
     .book-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 2rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
+      color: var(--text-primary);
     }
 
     .book-desc {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      font-weight: 300;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 4rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 400;
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 6rem;
+      margin-bottom: 2rem;
     }
 
-    .footer-content {
-      font-weight: 300;
-      letter-spacing: 0.5px;
+    .book-link {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--text-primary);
+      margin-top: 1rem;
+    }
+
+    .book-link:hover {
+      background: transparent;
+      color: var(--text-primary);
     }
 
     /* Navigation */
@@ -399,83 +326,57 @@
       top: 2rem;
       right: 2rem;
       z-index: 1000;
-      background: var(--card-bg);
-      border: 1px solid var(--border-subtle);
-      border-radius: 50px;
+      background: var(--bg-primary);
+      border: 1px solid var(--text-primary);
       padding: 0.8rem 1.5rem;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
       display: none;
     }
 
     .nav-home:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      color: var(--accent-copper);
+      background: var(--text-primary);
+      color: var(--bg-primary);
     }
 
     .nav-home.show {
       display: block;
     }
 
-    /* Blog Preview Section */
+    /* Blog styles */
     .blog-preview {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: var(--shadow-soft);
+      background: var(--bg-primary);
       border: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      position: relative;
+      padding: 4rem 3rem;
       text-align: center;
-    }
-
-    .blog-preview::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-primary);
-      border-radius: 20px 20px 0 0;
-    }
-
-    .blog-preview:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
+      position: relative;
     }
 
     .blog-cta {
       display: inline-block;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       padding: 1rem 2rem;
-      background: var(--gradient-primary);
+      background: var(--text-primary);
       color: var(--bg-primary);
       text-decoration: none;
-      border-radius: 50px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
+      border: 2px solid var(--text-primary);
     }
 
     .blog-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      color: var(--bg-primary);
+      background: transparent;
+      color: var(--text-primary);
     }
 
-    /* Blog Page Styles */
+    /* Blog Page */
     .blog-page {
       display: none;
       min-height: 100vh;
-      padding-top: 2rem;
+      padding-top: 4rem;
     }
 
     .blog-page.active {
@@ -484,29 +385,26 @@
 
     .blog-header {
       text-align: center;
-      padding: 4rem 2rem 2rem;
-      margin-bottom: 3rem;
+      padding: 4rem 2rem;
+      margin-bottom: 4rem;
     }
 
     .blog-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 600;
-      background: var(--gradient-primary);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
       letter-spacing: -1px;
     }
 
     .blog-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
-      font-weight: 300;
+      font-weight: 400;
       max-width: 600px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .posts-container {
@@ -516,94 +414,73 @@
     }
 
     .post-card {
-      background: var(--card-bg);
-      border-radius: 20px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
       padding: 3rem;
       margin-bottom: 3rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-subtle);
       transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
       position: relative;
     }
 
-    .post-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
-      border-radius: 20px 20px 0 0;
-    }
-
     .post-card:hover {
-      transform: translateY(-5px);
       box-shadow: var(--shadow-hover);
     }
 
     .post-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.8rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       line-height: 1.3;
     }
 
     .post-date {
       color: var(--text-secondary);
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
+      margin-bottom: 2rem;
+      font-weight: 400;
     }
 
     .post-content {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.8;
       color: var(--text-secondary);
+      font-weight: 400;
     }
 
     .post-content p {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .post-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    .empty-state {
+    /* Footer */
+    footer {
       text-align: center;
       padding: 4rem 2rem;
       color: var(--text-secondary);
-    }
-
-    .empty-state h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--text-primary);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 6rem;
+      position: relative;
     }
 
     .credentials {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--border-subtle);
     }
 
     .credentials p {
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       color: var(--text-primary);
       font-size: 1rem;
+      font-weight: 500;
     }
 
-    .credentials p:last-child {
-      margin-bottom: 0;
-    }
+    /* Responsive */
     @media (max-width: 768px) {
       header {
-        padding: 4rem 1rem 3rem;
+        padding: 6rem 1rem 4rem;
       }
 
       .container {
@@ -611,66 +488,97 @@
       }
 
       .section-card {
-        padding: 2rem;
+        padding: 3rem 2rem;
       }
 
       .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .floating-element {
-        display: none;
+      .nav-home {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
       }
-    }
 
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
+      .sahasrara-lotus {
+        width: 400px;
+        height: 400px;
+      }
 
-    /* Selection Color */
-    ::selection {
-      background: var(--accent-gold);
-      color: var(--bg-primary);
+      .muladhara-lotus {
+        width: 200px;
+        height: 200px;
+      }
     }
 
     /* Links */
     a {
-      color: var(--accent-gold);
-      text-decoration: none;
-      transition: color 0.3s ease;
+      color: var(--text-primary);
+      text-decoration: underline;
+      transition: opacity 0.3s ease;
     }
 
     a:hover {
-      color: var(--accent-bronze);
+      opacity: 0.7;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  <!-- Lotus Containers -->
+  <div class="lotus-container sahasrara-lotus" id="sahasraraLotus">
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+    <div class="lotus-petal sahasrara-petal"></div>
+  </div>
+
+  <div class="lotus-container muladhara-lotus" id="muladharaLotus">
+    <div class="lotus-petal muladhara-petal"></div>
+    <div class="lotus-petal muladhara-petal"></div>
+    <div class="lotus-petal muladhara-petal"></div>
+    <div class="lotus-petal muladhara-petal"></div>
+  </div>
+
   <!-- Navigation -->
   <a href="#" class="nav-home" id="homeBtn" onclick="showHomePage(); return false;">← Home</a>
 
   <!-- Main Home Page -->
   <div id="homePage">
-    <!-- Animated Background -->
-    <div class="bg-animation">
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-    </div>
-
     <!-- Header -->
-    <header>
+    <header id="headerSection">
       <h1 class="logo">foundermonk</h1>
       <p class="tagline">Build boldly. Execute clearly. Grow without the guesswork.</p>
       <div class="hero-description">
         I'm Arjun — strategist and founder partner for solo builders and early-stage creators. I help you turn raw ideas into real progress — no fluff, no noise, just clarity and execution.
       </div>
-    <a href=""
-   onclick="Calendly.initPopupWidget({url: 'https://calendly.com/arjun-foundermonk'}); window.goatcounter && goatcounter.count({ path: 'cta-calendly', title: 'Calendly Booking', event: true }); return false;"
-   class="cta-button"> Ready to stop circling your idea and start building? Let's talk
-</a>
-  
+      <a href=""
+         onclick="Calendly.initPopupWidget({url: 'https://calendly.com/arjun-foundermonk'}); window.goatcounter && goatcounter.count({ path: 'cta-calendly', title: 'Calendly Booking', event: true }); return false;"
+         class="cta-button"> Ready to stop circling your idea and start building? Let's talk
+      </a>
     </header>
 
     <!-- Main Content -->
@@ -682,9 +590,9 @@
           <div class="section-content">
             <p>I'm Arjun — I help founders cut through noise and rediscover clarity. I think like a founder, move like a monk. My work blends timeless vision with focused action, rooted in calm strength.</p>
             <div class="credentials">
-              <p><strong>• Co-created multiple projects from zero</strong></p>
-              <p><strong>• Known for deep thinking and no-bullshit clarity</strong></p>
-              <p><strong>• I don't do hype. I build what works.</strong></p>
+              <p>• Co-created multiple projects from zero</p>
+              <p>• Known for deep thinking and no-bullshit clarity</p>
+              <p>• I don't do hype. I build what works.</p>
             </div>
           </div>
         </div>
@@ -734,32 +642,43 @@
       <section class="section">
         <div class="book-preview">
           <h2 class="book-title">The Monkbook</h2>
-          <p class="book-desc">A short, clear, powerful guide on how modern founders should think. Coming soon for $5–$10.</p>
+          <p class="book-desc">A short, clear, powerful guide on how modern founders should think. Coming soon.</p>
+        </div>
+      </section>
+
+      <!-- Novel Section -->
+      <section class="section">
+        <div class="book-preview">
+          <h2 class="book-title">The Diary She Left Behind</h2>
+          <p class="book-desc">My latest novel - a journey through loss, discovery, and the profound secrets hidden in the pages we leave behind.</p>
+          <a href="https://a.co/d/c9AXav9" target="_blank" class="book-link"
+             onclick="window.goatcounter && goatcounter.count({ path: 'novel-amazon', title: 'Novel Amazon Link', event: true });">
+             Available on Amazon
+          </a>
         </div>
       </section>
 
       <!-- Contact Section -->
-      <section class="section">
+      <section class="section" id="contactSection">
         <div class="section-card">
           <h2 class="section-title">Who I work with — and what to expect</h2>
           <div class="section-content">
             <p>I work with serious builders — solo founders, creators, or teams at Day 0. If you've got an idea and want clarity, structure, or strategy… I'll help you move. I read every message and reply to those that align. Let's make something real.</p>
             <p style="margin-top: 2rem;">
-  Ready to turn your idea into progress? Reach out directly at 
-  <a href="mailto:arjun@foundermonk.com"
-     data-goatcounter-click="contact-email"
-     data-goatcounter-title="Email Contact">
-     arjun@foundermonk.com
-  </a>.
-</p>
-
+              Ready to turn your idea into progress? Reach out directly at 
+              <a href="mailto:arjun@foundermonk.com"
+                 data-goatcounter-click="contact-email"
+                 data-goatcounter-title="Email Contact">
+                 arjun@foundermonk.com
+              </a>.
+            </p>
           </div>
         </div>
       </section>
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footerSection">
       <div class="footer-content">
         &copy; 2025 Foundermonk. Designed with stillness. Built with vision.
       </div>
@@ -768,15 +687,12 @@
 
   <!-- Blog Page -->
   <div id="blogPage" class="blog-page">
-    <!-- Blog Header -->
     <div class="blog-header">
       <h1 class="blog-title">The Quiet Signals</h1>
       <p class="blog-subtitle">Where strategy meets stillness. Weekly insights on founder mindset, clarity in chaos, and the art of building with intention.</p>
     </div>
 
-    <!-- Posts Container -->
     <div class="posts-container">
-      <!-- Sample Post - Replace with your actual posts -->
       <article class="post-card">
         <h2 class="post-title">The Power of Strategic Stillness</h2>
         <div class="post-date">January 15, 2025</div>
@@ -796,17 +712,38 @@
           <p>Find your quiet hours. Guard them fiercely. Your future self will thank you.</p>
         </div>
       </article>
-
-      <!-- Empty state message -->
-      <div class="empty-state" style="display: none;">
-        <h3>More signals coming soon...</h3>
-        <p>New posts are published weekly. Check back for fresh insights on founder mindset and strategic thinking.</p>
-      </div>
     </div>
   </div>
 
-  <!-- JavaScript for page navigation -->
+  <!-- JavaScript -->
   <script>
+    // Lotus bloom effects
+    function bloomLotus(lotusId) {
+      const lotus = document.getElementById(lotusId);
+      lotus.classList.add('bloom');
+      setTimeout(() => {
+        lotus.classList.remove('bloom');
+      }, 3000);
+    }
+
+    // Header hover for Sahasrara
+    document.getElementById('headerSection').addEventListener('mouseenter', () => {
+      bloomLotus('sahasraraLotus');
+    });
+
+    // Footer hover for Muladhara
+    document.getElementById('footerSection').addEventListener('mouseenter', () => {
+      bloomLotus('muladharaLotus');
+    });
+
+    // Section hovers
+    document.querySelectorAll('.section-card, .blog-preview, .book-preview').forEach(section => {
+      section.addEventListener('mouseenter', () => {
+        bloomLotus('sahasraraLotus');
+      });
+    });
+
+    // Page navigation
     function showBlogPage() {
       document.getElementById('homePage').style.display = 'none';
       document.getElementById('blogPage').classList.add('active');
@@ -821,7 +758,7 @@
       window.scrollTo(0, 0);
     }
 
-    // Show/hide home button based on scroll position on blog page
+    // Show/hide home button
     window.addEventListener('scroll', function() {
       const blogPage = document.getElementById('blogPage');
       const homeBtn = document.getElementById('homeBtn');
