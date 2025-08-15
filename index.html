@@ -23,7 +23,7 @@
       --muladhara: #c41e3a;    /* Root - Red */
       --svadhisthana: #ff6600;  /* Sacral - Orange */
       --manipura: #ffff00;      /* Solar Plexus - Yellow */
-      --anahata: #00ff00;       /* Heart - Green */
+      --anahata: #007AFF;       /* Heart - Apple Blue */
       --vishuddha: #0066ff;     /* Throat - Blue */
       --ajna: #4b0082;          /* Third Eye - Indigo */
       --sahasrara: #9400d3;     /* Crown - Violet */
@@ -332,6 +332,26 @@
       border: 2px solid var(--anahata);
       padding: 2rem;
       text-align: center;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .tool-visual {
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .tool-preview-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .tool-content {
+      flex: 1;
+      text-align: left;
     }
 
     .tool-name {
@@ -761,6 +781,15 @@
         padding: 0.7rem 1.5rem;
       }
 
+      .free-tool-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .tool-content {
+        text-align: center;
+      }
+
       .tool-features {
         flex-direction: column;
         gap: 0.5rem;
@@ -919,6 +948,9 @@
           <div class="self-service-tools">
             <h3 class="tools-title">Self-Service Tools</h3>
             <div class="free-tool-card">
+              <div class="tool-visual">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Founder Idea Readiness Tool Preview" class="tool-preview-image" />
+              </div>
               <div class="tool-content">
                 <h4 class="tool-name">Founder Idea Readiness Tool</h4>
                 <p class="tool-description">Structured tool to validate your idea's clarity, worthiness, and founder readiness. Get an auto-generated verdict and tailored next steps in 10 minutes.</p>
